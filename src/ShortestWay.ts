@@ -1,6 +1,4 @@
-interface Tabs {
-    
-}
+import Colors from './Colors';
 
 export default class ShortestWay {
     valTab: Array<Array<string|number>> = [];
@@ -223,7 +221,7 @@ export default class ShortestWay {
                         this.innerText = 'M';
                     }
                     selected = !selected;
-                    this.style.backgroundColor = 'red';
+                    this.style.backgroundColor = Colors.acOne;
                     console.log(i, j);
                 };
         
@@ -236,10 +234,13 @@ export default class ShortestWay {
     drawPath(path: (string|number)[]): void {
         const main: any = document.querySelectorAll('.box');
         console.log(main);
+        // let i: number = 1;
         main.forEach((m: HTMLElement) => {
             if (path.includes(m.dataset.id)) {
                 console.log('jest');
-                m.style.backgroundColor = 'blue';
+                m.style.backgroundColor = Colors.acTwo;
+                // m.innerText = i.toString();
+                // i++;
             }
         })
     }
