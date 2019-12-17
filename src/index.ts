@@ -8,7 +8,8 @@ class Main {
     valTab: Array<Array<string|number>> = [];
     constructor() {
         this.genTab();
-        this.fillValTab();        
+        this.fillValTab();
+        this.addBalls(3);   
     }
     fillValTab(): void {
         for (let i: number = 0; i < 9; i++) {
@@ -44,7 +45,7 @@ class Main {
                         target.innerText = 'M';
                         this.meta = { x: i, y: j };
                         const sh: ShortestWay = new ShortestWay();
-                        this.valTab = sh.find(this.start, this.meta);
+                        this.valTab = sh.find(this.start, this.meta, this.valTab);
                         this.writeTab();
                     }
                     selected = !selected;
@@ -60,7 +61,14 @@ class Main {
     writeTab(): void {
         const main: any = document.querySelectorAll('.box');
         this.valTab.flat().forEach((el: string|number, i: number) => {
-            const ball: Ball = new Ball;
+            if(['a', 'b', 'c', 'd', 'e', 'f', 'g'].includes(el.toString())) {
+                const ball: Ball = new Ball;
+                ball.setName = el.toString();
+                main[i].appendChild(ball.getBall);
+
+            } else {
+                main[i].innerHTML = el.toString();
+            }
             main[i].innerHTML = el.toString();
             // main[i].appendChild(ball.getBall);
         })
@@ -72,9 +80,23 @@ class Main {
         const main: any = document.querySelectorAll('.box');
         console.log(main);
         main.forEach((m: HTMLElement) => {
-            m.innerText = '0';
+            m.innerHTML = '';
             m.style.backgroundColor = Colors.box;
         });
+    }
+
+    addBalls(amount: number) {
+        let i: number = 0;
+        while (i < amount) {
+            const randX: number = Math.floor(Math.random() * 9);
+            const randY: number = Math.floor(Math.random() * 9);
+
+            if(!['a', 'b', 'c', 'd', 'e', 'f', 'g'].includes(this.valTab[randX][randY].toString())) {
+                const ball: Ball = new Ball;
+                this.valTab[randX][randY] = ball.getName;
+                i++;
+            }
+        }
     }
 }
 new Main();

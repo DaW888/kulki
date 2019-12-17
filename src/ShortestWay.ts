@@ -41,7 +41,9 @@ export default class ShortestWay {
 
 
 
-    find(start: {x: number, y: number}, meta: {x: number, y: number}): Array<Array<string|number>> {
+    find(start: {x: number, y: number}, meta: {x: number, y: number}, valTab: Array<Array<string|number>>): Array<Array<string|number>> {
+        console.log('ciekawe');
+        console.log(this.valTab);
         this.valTab[start.x][start.y] = 'S';
         this.valTab[meta.x][meta.y] = 'M';
         // this.valTab[0][5] = 'X';
