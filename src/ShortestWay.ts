@@ -1,4 +1,4 @@
-import Colors from './Colors';
+import {Colors} from './Colors';
 
 export default class ShortestWay {
     valTab: Array<Array<string|number>> = [];
@@ -41,7 +41,7 @@ export default class ShortestWay {
 
 
 
-    find(start: {x: number, y: number}, meta: {x: number, y: number}) {
+    find(start: {x: number, y: number}, meta: {x: number, y: number}): Array<Array<string|number>> {
         this.valTab[start.x][start.y] = 'S';
         this.valTab[meta.x][meta.y] = 'M';
         // this.valTab[0][5] = 'X';
@@ -96,6 +96,7 @@ export default class ShortestWay {
             // this.drawTab();
         }
         console.log(nCurs);
+        return this.valTab;
     }
 
     addPath(i: number, cur: {x: number, y: number}, posG: {x: number, y: number}|null, posD: {x: number, y: number}|null,

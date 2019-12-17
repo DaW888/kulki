@@ -6,14 +6,18 @@ enum Colors {
     acOne = '#f04926',
     acTwo = '#26f0ae',
 
+
+
+}
+
+enum BallColors {
     ball1 = '#337dff',
     ball2 = '#ff337d',
     ball3 = '#7dff33',
     ball4 = '#9033ff',
-    ball5 = 'ff9033',
+    ball5 = '#ff9033',
     ball6 = '#33ff90',
     ball7 = '#FFE4E1',
-
 }
 
-export default Colors;
+export {Colors, BallColors};

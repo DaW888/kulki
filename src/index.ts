@@ -1,11 +1,22 @@
 import ShortestWay from './ShortestWay';
-import Colors from './Colors';
+import {Colors} from './Colors';
+import Ball from './Ball';
 
 class Main {
     start: { x: number; y: number };
     meta: { x: number; y: number };
+    valTab: Array<Array<string|number>> = [];
     constructor() {
         this.genTab();
+        this.fillValTab();        
+    }
+    fillValTab(): void {
+        for (let i: number = 0; i < 9; i++) {
+            this.valTab[i] = [];
+            for (let j: number = 0; j < 9; j++) {
+                this.valTab[i][j] = '0';
+            }
+        }
     }
 
     genTab() {
@@ -19,8 +30,7 @@ class Main {
                 dv.style.border = '2px solid black';
                 dv.style.borderRadius = '8px';
                 dv.className = 'box';
-                dv.style.width = '50px';
-                dv.style.height = '50px';
+
                 dv.innerText = j.toString();
                 dv.setAttribute('data-id', `${i} ${j}`);
 
@@ -34,7 +44,8 @@ class Main {
                         target.innerText = 'M';
                         this.meta = { x: i, y: j };
                         const sh: ShortestWay = new ShortestWay();
-                        sh.find(this.start, this.meta);
+                        this.valTab = sh.find(this.start, this.meta);
+                        this.writeTab();
                     }
                     selected = !selected;
                     target.style.backgroundColor = Colors.acOne;
@@ -46,7 +57,18 @@ class Main {
         }
     }
 
-    clearTab() {
+    writeTab(): void {
+        const main: any = document.querySelectorAll('.box');
+        this.valTab.flat().forEach((el: string|number, i: number) => {
+            const ball: Ball = new Ball;
+            main[i].innerHTML = el.toString();
+            // main[i].appendChild(ball.getBall);
+        })
+        // const ball: Ball = new Ball;
+        // console.log(ball.getBall);
+    }
+
+    clearTab(): void {
         const main: any = document.querySelectorAll('.box');
         console.log(main);
         main.forEach((m: HTMLElement) => {

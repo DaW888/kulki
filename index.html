@@ -14,11 +14,11 @@
             padding: 0;
             box-sizing: border-box;
             color: #f0f0f2;
-            background-color: rgb(37, 37, 46);
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
 
         body {
+            background-color: rgb(37, 37, 46);
             display: grid;
             place-content: center;
             height: 90vh;
@@ -26,12 +26,23 @@
         }
 
         #main {
-            width: 486px;
+            width: 650px;
             display: flex;
             flex-wrap: wrap;
         }
 
         .box {
+            display: grid;
+            place-content: center;
+            width: 70px;
+            height: 70px;
+        }
+
+        .ball {
+            width: 55px;
+            height: 55px;
+            border-radius: 40px;
+            color: black;
             display: grid;
             place-content: center;
         }
