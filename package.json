@@ -1,0 +1,18 @@
+{
+    "name": "kulki",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "dev": "webpack --mode development",
+        "prod": "webpack --mode production"
+    },
+    "author": "Dawid Wajda",
+    "license": "ISC",
+    "dependencies": {
+        "ts-loader": "^6.2.1",
+        "typescript": "^3.7.3",
+        "webpack": "^4.41.3",
+        "webpack-cli": "^3.3.10"
+    }
+}
